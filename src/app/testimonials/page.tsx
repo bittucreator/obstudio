@@ -1,8 +1,20 @@
+import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import portfolioData from '@/data/portfolio.json';
 
 export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'Testimonials - Obstudio',
+  description: 'See what our clients say about working with Obstudio. Real feedback from startups we\'ve helped with design.',
+  openGraph: {
+    title: 'Testimonials - Obstudio',
+    description: 'See what our clients say about working with Obstudio.',
+    url: 'https://obstudio.co/testimonials',
+    images: [{ url: '/OG.png', width: 1200, height: 630 }],
+  },
+};
 
 interface Testimonial {
   id: string;

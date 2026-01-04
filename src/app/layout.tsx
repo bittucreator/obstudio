@@ -17,7 +17,32 @@ export const metadata: Metadata = {
   description: "Design partner for startups. We create stunning websites, products, and branding.",
   keywords: ["design agency", "web design", "branding", "product design", "startup"],
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/favicon.svg",
+  },
+  openGraph: {
+    title: "Obstudio - Design Partner for Startups",
+    description: "Design partner for startups. We create stunning websites, products, and branding.",
+    url: "https://obstudio.co",
+    siteName: "Obstudio",
+    images: [
+      {
+        url: "/OG.png",
+        width: 1200,
+        height: 630,
+        alt: "Obstudio - Design Partner for Startups",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Obstudio - Design Partner for Startups",
+    description: "Design partner for startups. We create stunning websites, products, and branding.",
+    images: ["/OG.png"],
   },
 };
 
