@@ -1,0 +1,331 @@
+{
+  "items": [
+    {
+      "id": "1767524356333",
+      "title": "Ficos",
+      "category": "product",
+      "imageUrl": "/uploads/1767524356320-8.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767524349652",
+      "title": "Ficos",
+      "category": "product",
+      "imageUrl": "/uploads/1767524349635-7.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767524345106",
+      "title": "Ficos",
+      "category": "product",
+      "imageUrl": "/uploads/1767524345092-6.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767524339888",
+      "title": "Ficos",
+      "category": "product",
+      "imageUrl": "/uploads/1767524339871-5.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767524233592",
+      "title": "Corvus",
+      "category": "product",
+      "imageUrl": "/uploads/1767524233578-04.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767524227848",
+      "title": "Corvus",
+      "category": "product",
+      "imageUrl": "/uploads/1767524227834-03.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767524222048",
+      "title": "Corvus",
+      "category": "product",
+      "imageUrl": "/uploads/1767524222038-02.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767524209838",
+      "title": "Corvus",
+      "category": "product",
+      "imageUrl": "/uploads/1767524209827-01.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767524192185",
+      "title": "Diagno",
+      "category": "product",
+      "imageUrl": "/uploads/1767524192172-13.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767524187020",
+      "title": "Diagno",
+      "category": "product",
+      "imageUrl": "/uploads/1767524187007-12.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767524181603",
+      "title": "Diagno",
+      "category": "product",
+      "imageUrl": "/uploads/1767524181591-11.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767524174013",
+      "title": "Diagno",
+      "category": "product",
+      "imageUrl": "/uploads/1767524174004-10.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767524063340",
+      "title": "Diagnosis",
+      "category": "product",
+      "imageUrl": "/uploads/1767524063330-02.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767524057833",
+      "title": "Diagnosis",
+      "category": "product",
+      "imageUrl": "/uploads/1767524057825-01.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767523402273",
+      "title": "Strell",
+      "category": "website",
+      "imageUrl": "/uploads/1767523402262-04.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767523398565",
+      "title": "Strell",
+      "category": "website",
+      "imageUrl": "/uploads/1767523398556-03.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767523394083",
+      "title": "Strell",
+      "category": "website",
+      "imageUrl": "/uploads/1767523394072-02.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767523390073",
+      "title": "Strell",
+      "category": "website",
+      "imageUrl": "/uploads/1767523390067-01.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767522715125",
+      "title": "Lumi",
+      "category": "website",
+      "imageUrl": "/uploads/1767522715117-8.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767522710089",
+      "title": "Lumi",
+      "category": "website",
+      "imageUrl": "/uploads/1767522710082-7.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767522705483",
+      "title": "Lumi",
+      "category": "website",
+      "imageUrl": "/uploads/1767522705475-6.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767522700901",
+      "title": "Lumi",
+      "category": "website",
+      "imageUrl": "/uploads/1767522700892-5.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767522600171",
+      "title": "StalCrew",
+      "category": "website",
+      "imageUrl": "/uploads/1767522600153-12.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767522595656",
+      "title": "StalCrew",
+      "category": "website",
+      "imageUrl": "/uploads/1767522595625-11.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767522591120",
+      "title": "StalCrew",
+      "category": "website",
+      "imageUrl": "/uploads/1767522591091-10.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767522585054",
+      "title": "StalCrew",
+      "category": "website",
+      "imageUrl": "/uploads/1767522585048-9.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767499173886",
+      "title": "Polyfin",
+      "category": "website",
+      "imageUrl": "/uploads/1767499173879-04.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767499164420",
+      "title": "Polyfin",
+      "category": "website",
+      "imageUrl": "/uploads/1767499164413-03.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767498726173",
+      "title": "Polyfin",
+      "category": "website",
+      "imageUrl": "/uploads/1767498726168-02.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1767497773799",
+      "title": "Polyfin",
+      "category": "website",
+      "imageUrl": "/uploads/1767497773790-01.png",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "1",
+      "title": "Brand Identity System",
+      "category": "branding",
+      "imageUrl": "/portfolio/placeholder-1.jpg",
+      "createdAt": "2026-01-01"
+    },
+    {
+      "id": "2",
+      "title": "E-commerce Platform",
+      "category": "website",
+      "imageUrl": "/portfolio/placeholder-2.jpg",
+      "createdAt": "2026-01-02"
+    },
+    {
+      "id": "3",
+      "title": "Mobile App Design",
+      "category": "product",
+      "imageUrl": "/portfolio/placeholder-3.jpg",
+      "createdAt": "2026-01-03"
+    },
+    {
+      "id": "4",
+      "title": "SaaS Dashboard",
+      "category": "product",
+      "imageUrl": "/portfolio/placeholder-4.jpg",
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": "5",
+      "title": "Startup Landing Page",
+      "category": "website",
+      "imageUrl": "/portfolio/placeholder-5.jpg",
+      "createdAt": "2026-01-05"
+    },
+    {
+      "id": "6",
+      "title": "Logo Collection",
+      "category": "branding",
+      "imageUrl": "/portfolio/placeholder-6.jpg",
+      "createdAt": "2026-01-06"
+    }
+  ],
+  "clients": [
+    {
+      "id": "1767523490600",
+      "name": "Strell",
+      "logoUrl": "/uploads/1767523490595-shell.svg"
+    },
+    {
+      "id": "1767523500319",
+      "name": "StalCrew",
+      "logoUrl": "/uploads/1767523500315-21.svg"
+    },
+    {
+      "id": "1767523539011",
+      "name": "Lumi",
+      "logoUrl": "/uploads/1767523539006-22.svg"
+    },
+    {
+      "id": "1767523577408",
+      "name": "Unosend",
+      "logoUrl": "/uploads/1767523577400-34.svg"
+    },
+    {
+      "id": "1767523626124",
+      "name": "Polyfin",
+      "logoUrl": "/uploads/1767523626116-32.svg"
+    },
+    {
+      "id": "1767523677023",
+      "name": "Writine",
+      "logoUrl": "/uploads/1767523677018-24.svg"
+    },
+    {
+      "id": "1767524324704",
+      "name": "Ficos",
+      "logoUrl": "/uploads/1767524324699-Logo-Container.svg"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "1",
+      "content": "Working with OB Studio has been an incredible experience. They deliver exceptional quality and creative work, even with minimal direction, always maintaining strong visual style and brand consistency.",
+      "author": "Alex Chen",
+      "role": "Founder of TechFlow"
+    },
+    {
+      "id": "2",
+      "content": "OB Studio transformed our brand from a rough idea into something we're truly proud of. Their attention to detail and understanding of our vision was remarkable. The website they built has significantly improved our conversion rates.",
+      "author": "Sarah Mitchell",
+      "role": "CEO of Lumi"
+    },
+    {
+      "id": "3",
+      "content": "Fast, professional, and incredibly talented. They understood our startup's needs and delivered a website that perfectly captures our brand essence. Highly recommend for any founder looking for quality design.",
+      "author": "James Rodriguez",
+      "role": "Co-founder of StalCrew"
+    },
+    {
+      "id": "4",
+      "content": "The team at OB Studio doesn't just design—they strategize. They helped us rethink our entire user experience and the results speak for themselves. Our user engagement increased by 40% after the redesign.",
+      "author": "Emily Watson",
+      "role": "Product Lead at Polyfin"
+    },
+    {
+      "id": "5",
+      "content": "I've worked with many design agencies, but OB Studio stands out. Their communication is crystal clear, deadlines are always met, and the quality exceeds expectations every single time.",
+      "author": "David Kim",
+      "role": "Founder of NexaLabs"
+    },
+    {
+      "id": "6",
+      "content": "From branding to website to product design—OB Studio handled everything seamlessly. They're not just designers, they're partners who genuinely care about your success.",
+      "author": "Maria Santos",
+      "role": "CEO of Bloom Health"
+    }
+  ]
+}
