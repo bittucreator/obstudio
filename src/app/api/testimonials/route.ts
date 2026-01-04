@@ -1,16 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
-
-const dataFilePath = path.join(process.cwd(), 'src/data/portfolio.json');
+import { supabase } from '@/lib/supabase';
 
 export async function GET() {
   try {
-    const data = await fs.readFile(dataFilePath, 'utf-8');
-    const portfolioData = JSON.parse(data);
-    return NextResponse.json({ testimonials: portfolioData.testimonials || [] });
-  } catch {
-    return NextResponse.json({ error: 'Failed to load testimonials' }, { status: 500 });
+    const { data: testimonials, error } = await supabase
+      .from('testimonials')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) throw error;
+
+    // Transform to match expected format
+    const transformedTestimonials = (testimonials || []).map(t => ({
+      id: t.id,
+      content: t.content,
+      author: t.author,
+      role: t.role,
+    }));
+
+    return NextResponse.json({ testimonials: transformedTestimonials });
+  } catch (error) {
+    console.error('Failed to fetch testimonials:', error);
+    return NextResponse.json({ testimonials: [] });
   }
 }
 
@@ -23,22 +34,30 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const data = await fs.readFile(dataFilePath, 'utf-8');
-    const portfolioData = JSON.parse(data);
+    const { data, error } = await supabase
+      .from('testimonials')
+      .insert([
+        {
+          content,
+          author,
+          role,
+        }
+      ])
+      .select()
+      .single();
+
+    if (error) throw error;
 
     const newTestimonial = {
-      id: Date.now().toString(),
-      content,
-      author,
-      role,
+      id: data.id,
+      content: data.content,
+      author: data.author,
+      role: data.role,
     };
 
-    portfolioData.testimonials.push(newTestimonial);
-
-    await fs.writeFile(dataFilePath, JSON.stringify(portfolioData, null, 2));
-
     return NextResponse.json(newTestimonial, { status: 201 });
-  } catch {
+  } catch (error) {
+    console.error('Failed to add testimonial:', error);
     return NextResponse.json({ error: 'Failed to add testimonial' }, { status: 500 });
   }
 }
@@ -52,15 +71,16 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: 'Missing testimonial ID' }, { status: 400 });
     }
 
-    const data = await fs.readFile(dataFilePath, 'utf-8');
-    const portfolioData = JSON.parse(data);
+    const { error } = await supabase
+      .from('testimonials')
+      .delete()
+      .eq('id', id);
 
-    portfolioData.testimonials = portfolioData.testimonials.filter((t: { id: string }) => t.id !== id);
-
-    await fs.writeFile(dataFilePath, JSON.stringify(portfolioData, null, 2));
+    if (error) throw error;
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (error) {
+    console.error('Failed to delete testimonial:', error);
     return NextResponse.json({ error: 'Failed to delete testimonial' }, { status: 500 });
   }
 }

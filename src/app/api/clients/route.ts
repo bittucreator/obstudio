@@ -1,16 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
-
-const dataFilePath = path.join(process.cwd(), 'src/data/portfolio.json');
+import { supabase } from '@/lib/supabase';
 
 export async function GET() {
   try {
-    const data = await fs.readFile(dataFilePath, 'utf-8');
-    const portfolioData = JSON.parse(data);
-    return NextResponse.json({ clients: portfolioData.clients || [] });
-  } catch {
-    return NextResponse.json({ error: 'Failed to load clients' }, { status: 500 });
+    const { data: clients, error } = await supabase
+      .from('clients')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) throw error;
+
+    // Transform to match expected format
+    const transformedClients = (clients || []).map(client => ({
+      id: client.id,
+      name: client.name,
+      logoUrl: client.logo_url,
+    }));
+
+    return NextResponse.json({ clients: transformedClients });
+  } catch (error) {
+    console.error('Failed to fetch clients:', error);
+    return NextResponse.json({ clients: [] });
   }
 }
 
@@ -23,21 +33,28 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing client name' }, { status: 400 });
     }
 
-    const data = await fs.readFile(dataFilePath, 'utf-8');
-    const portfolioData = JSON.parse(data);
+    const { data, error } = await supabase
+      .from('clients')
+      .insert([
+        {
+          name,
+          logo_url: logoUrl || null,
+        }
+      ])
+      .select()
+      .single();
+
+    if (error) throw error;
 
     const newClient = {
-      id: Date.now().toString(),
-      name,
-      logoUrl: logoUrl || null,
+      id: data.id,
+      name: data.name,
+      logoUrl: data.logo_url,
     };
 
-    portfolioData.clients.push(newClient);
-
-    await fs.writeFile(dataFilePath, JSON.stringify(portfolioData, null, 2));
-
     return NextResponse.json(newClient, { status: 201 });
-  } catch {
+  } catch (error) {
+    console.error('Failed to add client:', error);
     return NextResponse.json({ error: 'Failed to add client' }, { status: 500 });
   }
 }
@@ -51,15 +68,16 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: 'Missing client ID' }, { status: 400 });
     }
 
-    const data = await fs.readFile(dataFilePath, 'utf-8');
-    const portfolioData = JSON.parse(data);
+    const { error } = await supabase
+      .from('clients')
+      .delete()
+      .eq('id', id);
 
-    portfolioData.clients = portfolioData.clients.filter((client: { id: string }) => client.id !== id);
-
-    await fs.writeFile(dataFilePath, JSON.stringify(portfolioData, null, 2));
+    if (error) throw error;
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (error) {
+    console.error('Failed to delete client:', error);
     return NextResponse.json({ error: 'Failed to delete client' }, { status: 500 });
   }
 }

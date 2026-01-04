@@ -1,15 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
-
-const dataFilePath = path.join(process.cwd(), 'src/data/portfolio.json');
+import { supabase } from '@/lib/supabase';
 
 export async function GET() {
   try {
-    const data = await fs.readFile(dataFilePath, 'utf-8');
-    return NextResponse.json(JSON.parse(data));
-  } catch {
-    return NextResponse.json({ error: 'Failed to load portfolio data' }, { status: 500 });
+    const { data: items, error } = await supabase
+      .from('portfolio')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) throw error;
+
+    // Transform to match expected format
+    const transformedItems = (items || []).map(item => ({
+      id: item.id,
+      title: item.title,
+      category: item.category,
+      imageUrl: item.image_url,
+      createdAt: item.created_at,
+    }));
+
+    return NextResponse.json({ items: transformedItems });
+  } catch (error) {
+    console.error('Failed to fetch portfolio:', error);
+    return NextResponse.json({ items: [] });
   }
 }
 
@@ -22,23 +35,31 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const data = await fs.readFile(dataFilePath, 'utf-8');
-    const portfolioData = JSON.parse(data);
+    const { data, error } = await supabase
+      .from('portfolio')
+      .insert([
+        {
+          title,
+          category,
+          image_url: imageUrl,
+        }
+      ])
+      .select()
+      .single();
+
+    if (error) throw error;
 
     const newItem = {
-      id: Date.now().toString(),
-      title,
-      category,
-      imageUrl,
-      createdAt: new Date().toISOString().split('T')[0],
+      id: data.id,
+      title: data.title,
+      category: data.category,
+      imageUrl: data.image_url,
+      createdAt: data.created_at,
     };
 
-    portfolioData.items.unshift(newItem);
-
-    await fs.writeFile(dataFilePath, JSON.stringify(portfolioData, null, 2));
-
     return NextResponse.json(newItem, { status: 201 });
-  } catch {
+  } catch (error) {
+    console.error('Failed to add portfolio item:', error);
     return NextResponse.json({ error: 'Failed to add portfolio item' }, { status: 500 });
   }
 }
@@ -52,15 +73,16 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: 'Missing item ID' }, { status: 400 });
     }
 
-    const data = await fs.readFile(dataFilePath, 'utf-8');
-    const portfolioData = JSON.parse(data);
+    const { error } = await supabase
+      .from('portfolio')
+      .delete()
+      .eq('id', id);
 
-    portfolioData.items = portfolioData.items.filter((item: { id: string }) => item.id !== id);
-
-    await fs.writeFile(dataFilePath, JSON.stringify(portfolioData, null, 2));
+    if (error) throw error;
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (error) {
+    console.error('Failed to delete portfolio item:', error);
     return NextResponse.json({ error: 'Failed to delete portfolio item' }, { status: 500 });
   }
 }
