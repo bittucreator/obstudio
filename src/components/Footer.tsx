@@ -10,6 +10,18 @@ export default function Footer() {
         
         <div className="flex items-center gap-6">
           <Link 
+            href="/terms"
+            className="text-sm text-gray-500 hover:text-black transition-colors"
+          >
+            Terms
+          </Link>
+          <Link 
+            href="/privacy"
+            className="text-sm text-gray-500 hover:text-black transition-colors"
+          >
+            Privacy
+          </Link>
+          <Link 
             href="https://x.com/obstudioco" 
             target="_blank"
             className="text-gray-500 hover:text-black transition-colors"
